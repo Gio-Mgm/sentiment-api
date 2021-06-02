@@ -34,17 +34,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    query = "i like"
-    response = predict_input(query)
-    models = {}
-    for el in response:
-        models[el[0]] = str(el[1])
-
-    output = {
-        "query": query,
-        "response": models
-    }
-    return output
+    return {"message": "Hello World"}
 
 
 @app.get("/prediction/{query}")
