@@ -32,14 +32,9 @@ def predict_input(input, df):
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
 @app.get("/prediction/{query}")
 def get_prediction(query):
-    response = predict_input(query, df)
+    response = predict_input(query)
     models = {}
     for el in response:
         models[el[0]] = str(el[1])
